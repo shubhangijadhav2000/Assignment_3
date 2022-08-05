@@ -32,7 +32,7 @@ public class VehicalServicesImpl implements VehicalServices{
             Vehical vehical1=vehicalList.get(i);
             String reqID=vehical1.getRequestId();
             int flag=0;
-            if(reqID.equals(requestId)){
+            if(reqID.equals(requestId)){        //find vehical with the requestId
                 flag=1;
                 vehicalRepo.delete(vehical1);
                 //customerRepo.fin
