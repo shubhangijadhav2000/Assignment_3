@@ -28,4 +28,9 @@ public class VehicalDetailsController {
         vehicalServices.deleteVehical(requestId);
         return "Vehical Deleted Successfully";
     }
+
+    @PutMapping("/api/update/vehical/{requestId}")
+    public Vehical updateVehical(@RequestBody Vehical vehical,@PathVariable String requestId){
+        return vehicalServices.updateVehical(requestId,vehical);
+    }
 }

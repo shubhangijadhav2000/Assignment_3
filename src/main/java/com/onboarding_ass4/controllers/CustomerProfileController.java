@@ -14,18 +14,24 @@ public class CustomerProfileController {
     @Autowired
     public CustomerServices customerServices;
 
+    //Get All Customer details
     @GetMapping("/api/get/customers")
     public List<Customer> getAllCustomers(){
         return customerServices.getAllCustomerDetails();
     }
 
-    @PostMapping("/api/add/customer")
-    public String addCustomer(@RequestBody Customer customer){
-        customerServices.addCustomer(customer);
-        return customer.getCheckoutId();
+    //Get One customer Details
+    @GetMapping("/api/get/customer/{checkoutId}")
+    public Customer getOneCustomer(@PathVariable String checkoutId){
+        return customerServices.getOneCustomer(checkoutId);
     }
 
-    @DeleteMapping("/api/delete/customer/{requestId}")
+    @PutMapping("/api/get/customer/{checkoutId}")
+    public Customer updateCustomer(@RequestBody Customer customer,@PathVariable String checkoutId){
+        return customerServices.updateCustomer(checkoutId,customer);
+    }
+
+    @DeleteMapping("/api/delete/customer/{checkoutId}")
     public String deleteCustomer(@PathVariable String checkoutId){
         customerServices.deleteCustomer(checkoutId);
         return "Customer Deleted Successfully";

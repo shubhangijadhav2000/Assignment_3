@@ -11,6 +11,7 @@ public interface VehicalServices {
 
     void deleteVehical(String requestId);
 
+    Vehical updateVehical(String requestId,Vehical vehical);
 
 
 }
