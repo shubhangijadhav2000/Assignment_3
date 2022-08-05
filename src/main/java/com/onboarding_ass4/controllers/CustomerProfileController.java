@@ -26,6 +26,13 @@ public class CustomerProfileController {
         return customerServices.getOneCustomer(checkoutId);
     }
 
+
+    @PostMapping("/api/add/customer")
+    public String addCustomer(@RequestBody Customer customer){
+        customerServices.addCustomer(customer);
+        return customer.getCheckoutId();
+    }
+
     @PutMapping("/api/get/customer/{checkoutId}")
     public Customer updateCustomer(@RequestBody Customer customer,@PathVariable String checkoutId){
         return customerServices.updateCustomer(checkoutId,customer);
