@@ -12,11 +12,13 @@ public class VehicalDetailsController {
     @Autowired
     public VehicalServices vehicalServices;
 
+    //Add new vehical
     @GetMapping("/api/get/vehicals")
     public List<Vehical> getAllDetails(){
         return vehicalServices.getAllVehicalDetails();
     }
 
+    //a
     @PostMapping("/api/add/vehical")
     public String addVehical(@RequestBody Vehical vehical){
         vehicalServices.addVehical(vehical);

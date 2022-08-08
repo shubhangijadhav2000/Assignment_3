@@ -69,17 +69,6 @@ public class CustomerServicesImpl implements CustomerServices{
 
         Customer customer=customerRepo.findCustomerById(checkoutId);
         customerRepo.delete(customer);
-
-        //-------Delete using Link------//
-//        List<Customer> customerList = customerRepo.findAll();
-//        for (int i = 0; i < customerList.size(); i++) {
-//            Customer customer1 = customerList.get(i);
-//            String temp_checkoutID = customer1.getCheckoutId();
-//            if (temp_checkoutID.equals(checkoutId)) {
-//                customerRepo.delete(customer1);
-//                break;
-//            }
-//        }
     }
 
 }

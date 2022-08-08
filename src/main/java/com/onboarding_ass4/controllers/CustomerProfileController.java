@@ -1,8 +1,6 @@
 package com.onboarding_ass4.controllers;
 import com.onboarding_ass4.model.Customer;
-import com.onboarding_ass4.model.Vehical;
 import com.onboarding_ass4.services.CustomerServices;
-import com.onboarding_ass4.services.VehicalServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,18 +24,20 @@ public class CustomerProfileController {
         return customerServices.getOneCustomer(checkoutId);
     }
 
-
+    //Add new customer
     @PostMapping("/api/add/customer")
     public String addCustomer(@RequestBody Customer customer){
         customerServices.addCustomer(customer);
         return customer.getCheckoutId();
     }
 
+    // Get customer by customer id
     @PutMapping("/api/get/customer/{checkoutId}")
     public Customer updateCustomer(@RequestBody Customer customer,@PathVariable String checkoutId){
         return customerServices.updateCustomer(checkoutId,customer);
     }
 
+    //delete customer by customer id
     @DeleteMapping("/api/delete/customer/{checkoutId}")
     public String deleteCustomer(@PathVariable String checkoutId){
         customerServices.deleteCustomer(checkoutId);
