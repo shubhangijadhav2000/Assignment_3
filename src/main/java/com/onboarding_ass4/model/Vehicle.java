@@ -2,7 +2,7 @@ package com.onboarding_ass4.model;
 
 import org.springframework.data.annotation.Id;
 
-public class Vehical {
+public class Vehicle {
     @Id
     private String requestId;
     private String vertical;
@@ -11,7 +11,7 @@ public class Vehical {
     private String insurer_name;
     private String premium;
 
-    public Vehical(String requestId, String vertical, String make, String model, String insurer_name, String premium) {
+    public Vehicle(String requestId, String vertical, String make, String model, String insurer_name, String premium) {
         this.requestId = requestId;
         this.vertical = vertical;
         this.make = make;

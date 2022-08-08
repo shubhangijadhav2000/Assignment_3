@@ -1,7 +1,6 @@
 package com.onboarding_ass4.services;
 
 import com.onboarding_ass4.model.Customer;
-import com.onboarding_ass4.model.Vehical;
 import com.onboarding_ass4.repos.CustomerRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
