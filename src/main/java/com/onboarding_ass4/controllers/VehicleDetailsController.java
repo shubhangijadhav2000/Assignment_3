@@ -1,5 +1,6 @@
 package com.onboarding_ass4.controllers;
 
+import com.onboarding_ass4.model.Customer;
 import com.onboarding_ass4.model.Vehicle;
 import com.onboarding_ass4.services.VehicleServices;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,12 @@ public class VehicleDetailsController {
     public String addVehicle(@RequestBody Vehicle vehicle){
         vehicleServices.addVehicle(vehicle);
         return vehicle.getRequestId();
+    }
+
+    //Get One Vehicle Details
+    @GetMapping("/api/get/vehicle/{requestId}")
+    public Vehicle getOneVehicle(@PathVariable String requestId){
+        return vehicleServices.getOneVehicle(requestId);
     }
 
     //delete vehicle

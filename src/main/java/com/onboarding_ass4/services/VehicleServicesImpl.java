@@ -1,5 +1,6 @@
 package com.onboarding_ass4.services;
 
+import com.onboarding_ass4.model.Customer;
 import com.onboarding_ass4.model.Vehicle;
 import com.onboarding_ass4.repos.VehicleRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,11 @@ public class VehicleServicesImpl implements VehicleServices{
     public List<Vehicle> getAllVehicleDetails(){
         List<Vehicle> vehicleList=vehicleRepo.findAll();
         return vehicleList;
+    }
+
+    @Override
+    public Vehicle getOneVehicle(String requestId) {
+        return vehicleRepo.findVehicleById(requestId);
     }
 
     @Override

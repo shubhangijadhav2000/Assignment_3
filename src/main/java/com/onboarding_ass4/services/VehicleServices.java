@@ -9,6 +9,8 @@ public interface VehicleServices {
 
     List<Vehicle> getAllVehicleDetails();
 
+    Vehicle getOneVehicle(String requestId);
+
     void deleteVehicle(String requestId);
 
     Vehicle updateVehicle(String requestId,Vehicle vehicle);
