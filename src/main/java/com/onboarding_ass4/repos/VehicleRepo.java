@@ -5,6 +5,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 
 public interface VehicleRepo extends MongoRepository<Vehicle,Integer> {
+
     //--------custom query methods--------//
 
     @Query("{requestId:?0}")

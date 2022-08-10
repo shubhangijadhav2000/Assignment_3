@@ -2,9 +2,7 @@ package com.onboarding_ass4.testcases;
 
 import com.onboarding_ass4.model.Customer;
 import com.onboarding_ass4.repos.CustomerRepo;
-import com.onboarding_ass4.repos.VehicleRepo;
 import com.onboarding_ass4.services.CustomerServices;
-import com.onboarding_ass4.services.VehicleServices;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -24,12 +22,6 @@ public class CustomerServiceTest {
     public CustomerServices customerServices;
     @MockBean
     public CustomerRepo customerRepo;
-
-//    String addCustomer(Customer customer);
-//    List<Customer> getAllCustomerDetails();
-//    void deleteCustomer(String checkoutId);
-//    Customer getOneCustomer(String checkoutId);
-//    Customer updateCustomer(String checkoutId, Customer customer);
 
     //Junit test case for getting all Customer details
     @Test

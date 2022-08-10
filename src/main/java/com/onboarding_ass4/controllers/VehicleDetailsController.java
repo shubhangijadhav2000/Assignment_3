@@ -1,6 +1,5 @@
 package com.onboarding_ass4.controllers;
 
-import com.onboarding_ass4.model.Customer;
 import com.onboarding_ass4.model.Vehicle;
 import com.onboarding_ass4.services.VehicleServices;
 import org.springframework.beans.factory.annotation.Autowired;
