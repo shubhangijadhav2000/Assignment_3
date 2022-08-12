@@ -1,5 +1,6 @@
 package com.onboarding_ass4.repos;
 
+import com.onboarding_ass4.model.Quotation;
 import com.onboarding_ass4.model.Vehicle;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
@@ -17,9 +18,15 @@ public interface VehicleRepo extends MongoRepository<Vehicle,Integer> {
     @Query("{make:?0}")
     Vehicle findVehicleByMake(String make);
 
-    @Query("{insurer_name:?0}")
-    Vehicle findVehicleByInsurerName(String insurer_name);
+    @Query("{model:?0}")
+    Vehicle findVehicleByModel(String model);
 
-    @Query("{premium:?0}")
-    Vehicle findVehicleByPremium(String premium);
+//    @Query("{insurer_name:?0}")
+//    Vehicle findVehicleByInsurerName(String in);
+//
+//    @Query("{premium:?0}")
+//    Vehicle findVehicleByPremium(String premium);
+//
+    @Query("{make:?0,model:?1}")
+    Vehicle findVehicleByMakeAndModel(String make, String model);
 }

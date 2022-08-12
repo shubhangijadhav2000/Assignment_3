@@ -15,6 +15,7 @@ public class VehicleDetailsController {
     //get all vehicles
     @GetMapping("/api/get/vehicles")
     public List<Vehicle> getAllDetails(){
+
         return vehicleServices.getAllVehicleDetails();
     }
 
@@ -40,7 +41,7 @@ public class VehicleDetailsController {
 
     //update vehicle
     @PutMapping("/api/update/vehicle/{requestId}")
-    public Vehicle updateVehicle(@RequestBody Vehicle vehicle,@PathVariable String requestId){
-        return vehicleServices.updateVehicle(requestId,vehicle);
+    public Vehicle updateVehicle(@RequestBody Vehicle vehicle, @PathVariable String requestId){
+        return vehicleServices.updateVehicle(requestId, vehicle);
     }
 }

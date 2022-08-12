@@ -1,19 +1,27 @@
 package com.onboarding_ass4.model;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-public class Vehicle {
+import java.util.List;
+
+@Document(collection = "quotation")
+public class Quotation {
     @Id
     private String requestId;
     private String vertical;
     private String make;
     private String model;
+    private List<SupportedInsurers> supportedInsurers;
 
-    public Vehicle(String requestId, String vertical, String make, String model) {
+
+
+    public Quotation(String requestId, String vertical, String make, String model, List<SupportedInsurers> supportedInsurers) {
         this.requestId = requestId;
         this.vertical = vertical;
         this.make = make;
         this.model = model;
+        this.supportedInsurers = supportedInsurers;
     }
 
     public String getRequestId() {
@@ -46,5 +54,13 @@ public class Vehicle {
 
     public void setModel(String model) {
         this.model = model;
+    }
+
+    public List<SupportedInsurers> getSupportedInsurers() {
+        return supportedInsurers;
+    }
+
+    public void setSupportedInsurers(List<SupportedInsurers> supportedInsurers) {
+        this.supportedInsurers = supportedInsurers;
     }
 }
