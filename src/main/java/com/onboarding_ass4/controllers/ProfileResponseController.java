@@ -14,16 +14,9 @@ public class ProfileResponseController {
     @Autowired
     public ProfileServices profileServices;
 
-    //add new Profiles
-//    @PostMapping("/api/add/profiles/{requestId}")
-//    public List<Profile> addVehicle(@PathVariable String requestId){
-//        return profileServices.addProfile(requestId);
-//    }
-
-    //Get One Profile Details
+    //Get Profile Details
     @GetMapping("/api/get/profile/{requestId}")
     public List<Profile> getOneProfile(@PathVariable String requestId){
-
         return profileServices.getOneProfile(requestId);
     }
 
