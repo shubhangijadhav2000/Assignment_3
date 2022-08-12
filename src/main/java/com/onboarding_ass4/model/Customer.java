@@ -5,19 +5,21 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "customer")
 public class Customer {
-    @Id
+
     private String checkoutId;
     private String customerName;
     private String customerEmail;
     private String customerPhone;
     private String requestId;
+    private String resultId;
 
-    public Customer(String checkoutId, String customerName, String customerEmail, String customerPhone, String requestId) {
+    public Customer(String checkoutId, String customerName, String customerEmail, String customerPhone, String requestId, String resultId) {
         this.checkoutId = checkoutId;
         this.customerName = customerName;
         this.customerEmail = customerEmail;
         this.customerPhone = customerPhone;
         this.requestId = requestId;
+        this.resultId = resultId;
     }
 
     public String getCheckoutId() {
@@ -58,5 +60,13 @@ public class Customer {
 
     public void setRequestId(String requestId) {
         this.requestId = requestId;
+    }
+
+    public String getResultId() {
+        return resultId;
+    }
+
+    public void setResultId(String resultId) {
+        this.resultId = resultId;
     }
 }

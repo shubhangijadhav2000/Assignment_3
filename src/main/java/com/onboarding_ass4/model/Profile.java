@@ -1,35 +1,24 @@
 package com.onboarding_ass4.model;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
+@Document(collection = "TW/FW-Response")
 public class Profile {
-    @Id
+
+    private String requestId;
+    private SupportedInsurers supportedInsurers;
     private String resultId;
-    private List<SupportedInsurers> supportedInsurers;
-    private  String requestId;
 
-    public Profile(String resultId, List<SupportedInsurers> supportedInsurers, String requestId) {
-        this.resultId = resultId;
-        this.supportedInsurers = supportedInsurers;
+    public Profile() {
+    }
+
+    public Profile(String requestId, SupportedInsurers supportedInsurers, String resultId) {
         this.requestId = requestId;
-    }
-
-    public String getResultId() {
-        return resultId;
-    }
-
-    public void setResultId(String resultId) {
-        this.resultId = resultId;
-    }
-
-    public List<SupportedInsurers> getSupportedInsurers() {
-        return supportedInsurers;
-    }
-
-    public void setSupportedInsurers(List<SupportedInsurers> supportedInsurers) {
         this.supportedInsurers = supportedInsurers;
+        this.resultId = resultId;
     }
 
     public String getRequestId() {
@@ -38,5 +27,21 @@ public class Profile {
 
     public void setRequestId(String requestId) {
         this.requestId = requestId;
+    }
+
+    public SupportedInsurers getSupportedInsurers() {
+        return supportedInsurers;
+    }
+
+    public void setSupportedInsurers(SupportedInsurers supportedInsurers) {
+        this.supportedInsurers = supportedInsurers;
+    }
+
+    public String getResultId() {
+        return resultId;
+    }
+
+    public void setResultId(String resultId) {
+        this.resultId = resultId;
     }
 }

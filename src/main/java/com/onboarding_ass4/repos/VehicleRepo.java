@@ -10,7 +10,7 @@ public interface VehicleRepo extends MongoRepository<Vehicle,Integer> {
     //--------custom query methods--------//
 
     @Query("{requestId:?0}")
-    Vehicle findVehicleById(String requestId);
+    Vehicle findByRequestId(String requestId);
 
     @Query("{vertical:?0}")
     Vehicle findVehicleByVertical(String vertical);
@@ -21,12 +21,6 @@ public interface VehicleRepo extends MongoRepository<Vehicle,Integer> {
     @Query("{model:?0}")
     Vehicle findVehicleByModel(String model);
 
-//    @Query("{insurer_name:?0}")
-//    Vehicle findVehicleByInsurerName(String in);
-//
-//    @Query("{premium:?0}")
-//    Vehicle findVehicleByPremium(String premium);
-//
     @Query("{make:?0,model:?1}")
     Vehicle findVehicleByMakeAndModel(String make, String model);
 }

@@ -5,18 +5,16 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
-@Document(collection = "quotation")
+@Document(collection = "quotations")
 public class Quotation {
     @Id
     private String requestId;
     private String vertical;
     private String make;
     private String model;
-    private List<SupportedInsurers> supportedInsurers;
+    private SupportedInsurers supportedInsurers;
 
-
-
-    public Quotation(String requestId, String vertical, String make, String model, List<SupportedInsurers> supportedInsurers) {
+    public Quotation(String requestId, String vertical, String make, String model, SupportedInsurers supportedInsurers) {
         this.requestId = requestId;
         this.vertical = vertical;
         this.make = make;
@@ -56,11 +54,11 @@ public class Quotation {
         this.model = model;
     }
 
-    public List<SupportedInsurers> getSupportedInsurers() {
+    public SupportedInsurers getSupportedInsurers() {
         return supportedInsurers;
     }
 
-    public void setSupportedInsurers(List<SupportedInsurers> supportedInsurers) {
+    public void setSupportedInsurers(SupportedInsurers supportedInsurers) {
         this.supportedInsurers = supportedInsurers;
     }
 }

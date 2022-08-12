@@ -5,6 +5,8 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import java.util.List;
+
 public interface QuotationRepo extends MongoRepository<Quotation,String> {
 
     //--------custom query methods--------//
@@ -28,7 +30,7 @@ public interface QuotationRepo extends MongoRepository<Quotation,String> {
 //    Quotation findVehicleByPremium(String premium);
 //
     @Query("{make:?0,model:?1}")
-    Quotation findQuotationByMakeAndModel(@Param("Make") String Make,@Param("Model") String Model);
+    List<Quotation> findAllQuotationByMakeAndModel(@Param("Make") String Make, @Param("Model") String Model);
 
 
 }

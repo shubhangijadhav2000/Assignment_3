@@ -1,16 +1,27 @@
 package com.onboarding_ass4.controllers;
 import com.onboarding_ass4.model.Customer;
+import com.onboarding_ass4.model.Profile;
+import com.onboarding_ass4.model.Vehicle;
+import com.onboarding_ass4.repos.ProfileRepo;
+import com.onboarding_ass4.repos.VehicleRepo;
 import com.onboarding_ass4.services.CustomerServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Vector;
 
 @RestController
 public class CustomerProfileController {
 
     @Autowired
     public CustomerServices customerServices;
+    @Autowired
+    public VehicleRepo vehicleRepo;
+    @Autowired
+    public ProfileRepo profileRepo;
 
     //Get All Customer details
     @GetMapping("/api/get/customers")
@@ -20,11 +31,22 @@ public class CustomerProfileController {
 
     //Get One customer Details
     @GetMapping("/api/get/customer/{checkoutId}")
-    public Customer getOneCustomer(@PathVariable String checkoutId){
-        return customerServices.getOneCustomer(checkoutId);
+    public Map<String,Object> getOneCustomer(@PathVariable String checkoutId){
+        Customer customer1= customerServices.getOneCustomer(checkoutId);
+        Map<String,Object> response= new HashMap<String,Object>();
+
+        String resultId= customer1.getResultId();
+        Profile profile=profileRepo.findProfileByResultId(resultId);
+        String reqId= customer1.getRequestId();
+        Vehicle vehicle=vehicleRepo.findByRequestId(reqId);
+
+        response.put("customer", customer1);
+        response.put("profile", profile);
+        response.put("vehicle",vehicle);
+        return response;
     }
 
-    //Add new customer
+    //Add new customer checkout
     @PostMapping("/api/add/customer")
     public String addCustomer(@RequestBody Customer customer){
         customerServices.addCustomer(customer);

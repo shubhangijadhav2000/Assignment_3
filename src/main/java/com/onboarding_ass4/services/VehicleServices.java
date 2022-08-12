@@ -1,5 +1,6 @@
 package com.onboarding_ass4.services;
 
+import com.onboarding_ass4.model.Quotation;
 import com.onboarding_ass4.model.Vehicle;
 
 import java.util.List;
@@ -13,5 +14,6 @@ public interface VehicleServices {
 
     void deleteVehicle(String requestId);
 
-    Vehicle updateVehicle(String requestId, Vehicle vehicle);
+    Vehicle updateVehicle(String  requestId, Vehicle vehicle);
+
 }

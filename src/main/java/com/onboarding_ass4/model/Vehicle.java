@@ -1,9 +1,9 @@
 package com.onboarding_ass4.model;
 
-import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document(collection = "TW/FW-Request")
 public class Vehicle {
-    @Id
     private String requestId;
     private String vertical;
     private String make;

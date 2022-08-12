@@ -13,10 +13,25 @@ public class CustomerServicesImpl implements CustomerServices{
 
     @Autowired
     public CustomerRepo customerRepo;
+    @Autowired
+    public QuotationServicesImpl quotationServicesImpl;
+
+    @Autowired
+    public VehicleServices vehicleServices;
+    @Autowired
+    public ProfileServices profileServices;
 
     //Add new Customer
     @Override
     public String addCustomer(Customer customer) {
+        String Id;
+        while (true) {
+            Id = quotationServicesImpl.createRequestId();
+            if (customerRepo.findCustomerById(Id) == null) {
+                break;
+            }
+        }
+        customer.setCheckoutId(Id);
         Customer customer1 = customerRepo.save(customer);
         return customer1.getCheckoutId();
     }
@@ -30,7 +45,12 @@ public class CustomerServicesImpl implements CustomerServices{
     //Get One Customer Details
     @Override
     public Customer getOneCustomer(String checkoutId) {
-        return customerRepo.findCustomerById(checkoutId);
+        Customer customer=customerRepo.findCustomerById(checkoutId);
+        String reqId=customer.getRequestId();
+        String resId=customer.getResultId();
+        vehicleServices.getOneVehicle(reqId);
+        profileServices.getOneProfile(resId);
+        return customer;
     }
 
     //Update customer by Id
