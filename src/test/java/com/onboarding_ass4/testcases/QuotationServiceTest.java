@@ -1,18 +1,13 @@
 package com.onboarding_ass4.testcases;
 import com.onboarding_ass4.model.Quotation;
 import com.onboarding_ass4.model.SupportedInsurers;
-import com.onboarding_ass4.model.Vehicle;
 import com.onboarding_ass4.repos.QuotationRepo;
-import com.onboarding_ass4.repos.VehicleRepo;
 import com.onboarding_ass4.services.QuotationServices;
-import com.onboarding_ass4.services.VehicleServices;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 

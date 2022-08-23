@@ -15,4 +15,6 @@ public interface ProfileRepo extends MongoRepository<Profile,Integer> {
     @Query("{resultId:?0}")
     Profile findProfileByResultId(String resultId);
 
+    @Query("{resultId:?0,requestId:?1}")
+    Profile findByResultIdAndRequestId(String resultId, String requestId);
 }

@@ -23,12 +23,7 @@ public interface QuotationRepo extends MongoRepository<Quotation,String> {
     @Query("{model:?0}")
     Quotation findQuotationByModel(String model);
 
-    //    @Query("{insurer_name:?0}")
-//    Quotation findVehicleByInsurerName(String in);
-//
-//    @Query("{premium:?0}")
-//    Quotation findVehicleByPremium(String premium);
-//
+
     @Query("{make:?0,model:?1}")
     List<Quotation> findAllQuotationByMakeAndModel(@Param("Make") String Make, @Param("Model") String Model);
 

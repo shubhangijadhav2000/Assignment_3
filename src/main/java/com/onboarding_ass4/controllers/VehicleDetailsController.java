@@ -27,21 +27,21 @@ public class VehicleDetailsController {
     }
 
     //Get One Vehicle Details
-    @GetMapping("/api/get/vehicle/{resultId}")
-    public Vehicle getOneVehicle(@PathVariable String resultId){
-        return vehicleServices.getOneVehicle(resultId);
+    @GetMapping("/api/get/vehicle/{requestId}")
+    public Vehicle getOneVehicle(@PathVariable String requestId){
+        return vehicleServices.getOneVehicle(requestId);
     }
 
     //delete vehicle
-    @DeleteMapping("/api/delete/vehicle/{resultId}")
-    public String deleteVehicle(@PathVariable String resultId){
-        vehicleServices.deleteVehicle(resultId);
+    @DeleteMapping("/api/delete/vehicle/{requestId}")
+    public String deleteVehicle(@PathVariable String requestId){
+        vehicleServices.deleteVehicle(requestId);
         return "Vehicle Deleted Successfully";
     }
 
     //update vehicle
-    @PutMapping("/api/update/vehicle/{resultId}")
-    public Vehicle updateVehicle(@RequestBody Vehicle vehicle, @PathVariable String resultId){
-        return vehicleServices.updateVehicle(resultId, vehicle);
+    @PutMapping("/api/update/vehicle/{requestId}")
+    public Vehicle updateVehicle(@RequestBody Vehicle vehicle, @PathVariable String requestId){
+        return vehicleServices.updateVehicle(requestId, vehicle);
     }
 }

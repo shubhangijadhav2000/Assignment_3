@@ -26,6 +26,7 @@ public class CustomerProfileController {
     //Get All Customer details
     @GetMapping("/api/get/customers")
     public List<Customer> getAllCustomers(){
+
         return customerServices.getAllCustomerDetails();
     }
 
@@ -36,8 +37,8 @@ public class CustomerProfileController {
         Map<String,Object> response= new HashMap<String,Object>();
 
         String resultId= customer1.getResultId();
-        Profile profile=profileRepo.findProfileByResultId(resultId);
         String reqId= customer1.getRequestId();
+        Profile profile=profileRepo.findByResultIdAndRequestId(resultId,reqId);
         Vehicle vehicle=vehicleRepo.findByRequestId(reqId);
 
         response.put("customer", customer1);
